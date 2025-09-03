@@ -12,7 +12,7 @@ namespace Lektion1
             if (svar == "y")
             {
                 Console.Clear();
-                Console.WriteLine("\" \\ / \n \t");
+                Console.WriteLine("\" \\ /");
                 Console.WriteLine("Vill du ha ett virus (det är ofarligt) (y/n)");
                 string svar1 = Console.ReadLine();
                 Console.Clear();
