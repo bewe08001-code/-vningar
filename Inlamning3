@@ -1,0 +1,356 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+namespace inlamning2
+{
+    class Vars
+    {
+        public List<string> upg2 = new List<string> { "uppgift2", "uppg2", "2", "andra", "två" };
+        public List<string> upg3 = new List<string> { "uppgift3", "uppg3", "3", "tredje", "tre" };
+        public List<string> upg4 = new List<string> { "uppgift4", "uppg4", "4", "fjärde", "fyra" };
+        public List<string> upg1 = new List<string> { "upg1", "uppgift1", "1", "första", "ett" };
+        public List<string> upg5 = new List<string> { "uppgift5", "uppg5", "5", "femte", "fem" };
+    }
+
+
+    class NavC
+    {
+        public static void Main(string[] args)
+        {
+            Console.Clear();
+            Vars v = new Vars();
+            var upg1 = v.upg1;
+            var upg2 = v.upg2;
+            var upg3 = v.upg3;
+            var upg4 = v.upg4;
+            var upg5 = v.upg5;
+            Console.WriteLine("Välkommen till Navigationssystemet!");
+            Console.WriteLine("Vart i programmet vill du gå?");
+            Console.WriteLine("upgift1, uppgift2, uppgift3, uppgift4, uppgift5 eller avsluta");
+            string svar = Console.ReadLine();
+            if (upg1.Contains(svar))
+            {
+                Uppgift1.Start();
+            }
+            else if (upg2.Contains(svar))
+            {
+                Uppgift2.Start();
+            }
+            else if (upg3.Contains(svar))
+            {
+                Uppgift3.Start();
+            }
+            else if (upg4.Contains(svar))
+            {
+                Uppgift4.Start();
+            }
+            else if (upg5.Contains(svar))
+            {
+                Uppgift5.Start();
+            }
+            else if (svar == "avsluta")
+            {
+                Console.WriteLine("Avslutar programmet...");
+            }
+            else
+            {
+                Console.WriteLine("Ogiltigt val, försök igen.");
+                System.Threading.Thread.Sleep(2000);
+                Main(args);
+            }
+        }
+    }
+    class Uppgift1
+    {
+        public static void Start()
+        {
+            Console.Clear();
+            Console.WriteLine("Välkommen till uppgift 1!");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine("Hej och välkommen till Teknikums Tävling :D");
+            Console.WriteLine("Hur gammal är du?");
+            string alder = Console.ReadLine();
+            int age = int.Parse(alder);
+            switch (age)
+            {
+                case < 0:
+                    Console.WriteLine("Du är inte född än!");
+                    System.Threading.Thread.Sleep(1000);
+                    Uppgift1.Start();
+                    break;
+                case < 16:
+                    Console.WriteLine("Du är för ung för att delta i tävlingen.");
+                    System.Threading.Thread.Sleep(1000);
+                    Uppgift1.Start();
+                    break;
+                case >= 16 and <= 19:
+                    Console.WriteLine("Du är välkommen att delta i tävlingen!");
+                    System.Threading.Thread.Sleep(1000);
+                    Uppgift1Continued();
+                    break;
+                case > 19:
+                    Console.WriteLine("Du är för gammal för att delta i tävlingen.");
+                    System.Threading.Thread.Sleep(1000);
+                    Uppgift1.Start();
+                    break;
+            }
+        }
+        static void Uppgift1Continued() {
+            Console.WriteLine("Vilken uppgift vill du göra nu? Eller avsluta? (uppgift 5, uppgift4, uppgift2, uppgift3, avsluta)");
+            string input = Console.ReadLine();
+            Vars v = new Vars();
+            var upg4 = v.upg4;
+            var upg2 = v.upg2;
+            var upg3 = v.upg3;
+            var upg5 = v.upg5;
+            if (upg4.Contains(input))
+            {
+                Uppgift4.Start();
+            }
+            else if (upg2.Contains(input))
+            {
+                Uppgift2.Start();
+            }
+            else if (upg3.Contains(input))
+            {
+                Uppgift3.Start();
+            }
+            else if (upg5.Contains(input))
+            {
+                Uppgift5.Start();
+            }
+            else
+            {
+                Console.WriteLine("Avslutar programmet.");
+            }
+        }
+    }
+    class Uppgift2
+    {
+        public static void Start()
+        {
+            Console.Clear();
+            Console.WriteLine("Välkommen till uppgift 2!");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine("Välkommen till arbetsintervjun! Vad är ditt namn?");
+            Console.ReadLine();
+            Console.WriteLine("Har du gått ut gymnasiet? (J/N)");
+            string svar = Console.ReadLine().ToLower();
+            Console.WriteLine("Hur gammal är du?");
+            string alder = Console.ReadLine();
+            int age = int.Parse(alder);
+            if (svar == "j" && age <= 22)
+            {
+                Console.WriteLine("Vi vill gärna anställa dig!");
+            }
+            else
+            {
+                Console.WriteLine("Tyvärr, vi söker någon annan.");
+            }
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("Vilken uppgift vill du göra nu? Eller avsluta? (uppgift5, uppgift1, uppgift4, uppgift3, avsluta)");
+            string input = Console.ReadLine();
+            Vars v = new Vars();
+            var upg1 = v.upg1;
+            var upg4 = v.upg4;
+            var upg3 = v.upg3;
+            var upg5 = v.upg5;
+            if (upg1.Contains(input))
+            {
+                Uppgift1.Start();
+            }
+            else if (upg4.Contains(input))
+            {
+                Uppgift4.Start();
+            }
+            else if (upg3.Contains(input))
+            {
+                Uppgift3.Start();
+            }
+            else if (upg5.Contains(input))
+            {
+                Uppgift5.Start();
+            }
+            else
+            {
+                Console.WriteLine("Avslutar programmet.");
+            }
+        }
+    }
+    class Uppgift3
+    {
+        public static void Start()
+        {
+            Console.Clear();
+            Console.WriteLine("Välkommen till uppgift 3!");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine("Välkommen till Hyrbil AB!");
+            Console.WriteLine("Hur många timmar ska du hyra bilen?(hela timmar)");
+            string tid = Console.ReadLine();
+            int time = int.Parse(tid);
+            if (time < 0)
+            {
+                Console.WriteLine("Ogiltigt antal timmar.");
+                System.Threading.Thread.Sleep(1000);
+                Start();
+            }
+            else if (time > 24)
+            {
+                Console.WriteLine("Du får inte hyta bilen i mer än 24 timmar");
+                System.Threading.Thread.Sleep(1000);
+                Start();
+            }
+            else if (time * 80 <= 950)
+            {
+                int kostnad = time * 80;
+                Console.WriteLine($"Kostnaden för att hyra bilen i {time} timmar är {kostnad} kr.");
+            }
+            else
+            {
+                Console.WriteLine($"Kostnaden för att hyra bilen i {time} timmar är 950 kr.");
+            }
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("Vilken uppgift vill du göra nu? Eller avsluta? (uppgift1, uppgift2, uppgift4, uppgift5, avsluta)");
+            string input = Console.ReadLine();
+            Vars v = new Vars();
+            var upg1 = v.upg1;
+            var upg2 = v.upg2;
+            var upg4 = v.upg4;
+            var upg5 = v.upg5;
+            if (upg1.Contains(input))
+            {
+                Uppgift1.Start();
+            }
+            else if (upg2.Contains(input))
+            {
+                Uppgift2.Start();
+            }
+            else if (upg4.Contains(input))
+            {
+                Uppgift4.Start();
+            }
+            else if (upg5.Contains(input))
+            {
+                Uppgift5.Start();
+            }
+            else
+            {
+                Console.WriteLine("Avslutar programmet.");
+            }
+        }
+    }
+    class Uppgift4
+    {
+        public static void Start()
+        {
+            Console.Clear();
+            Console.WriteLine("Välkommen till uppgift 4!");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine("Välkommen till RadioKanalen AB!");
+            Console.WriteLine("Hur lång är din låt i först minuter sen sekunder?");
+            string min = Console.ReadLine();
+            string sek = Console.ReadLine();
+            int minut = int.Parse(min);
+            int sekund = int.Parse(sek);
+            int totsek = (minut * 60) + sekund;
+            if (totsek < 165)
+            {
+                Console.WriteLine("Din låt är inte godkänd för spelning.");
+                System.Threading.Thread.Sleep(1000);
+                Start();
+            }
+            if (totsek > 230)
+            {
+                Console.WriteLine("Din låt är inte godkänd för spelning.");
+                System.Threading.Thread.Sleep(1000);
+                Start();
+            }
+            else
+            {
+                Console.WriteLine("Din låt är godkänd för spelning.");
+            }
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine("Vilken uppgift vill du göra nu? Eller avsluta? (uppgift1, uppgift2, uppgift3, uppgift5, avsluta)");
+            string input = Console.ReadLine();
+            Vars v = new Vars();
+            var upg1 = v.upg1;
+            var upg2 = v.upg2;
+            var upg3 = v.upg3;
+            var upg5 = v.upg5;
+            if (upg1.Contains(input))
+            {
+                Uppgift1.Start();
+            }
+            else if (upg2.Contains(input))
+            {
+                Uppgift2.Start();
+            }
+            else if (upg3.Contains(input))
+            {
+                Uppgift3.Start();
+            }
+            else if (upg5.Contains(input))
+            {
+                Uppgift5.Start();
+            }
+            else 
+            {
+                Console.WriteLine("Avslutar programmet.");
+            }
+
+        }
+
+
+    }
+    class Uppgift5
+    {
+        public static void Start()
+        {
+            Console.WriteLine("Välkommen till uppgift 5!");
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine("Välkommen till Kalkylatorn!");
+            Console.WriteLine("Skriv in ett tal:");
+            string tal1 = Console.ReadLine();
+            Console.WriteLine("Skriv in ett till tal:");
+            string tal2 = Console.ReadLine();
+            double num1 = double.Parse(tal1, CultureInfo.InvariantCulture);
+            double num2 = double.Parse(tal2, CultureInfo.InvariantCulture);
+            Console.WriteLine("Vilken operation vill du göra? (+, -, *, /)");
+            string op = Console.ReadLine();
+            switch (op)
+            {
+                case "+":
+                    double sum = num1 + num2;
+                    Console.WriteLine($"Resultatet av {num1} + {num2} är {sum}");
+                    System.Threading.Thread.Sleep(1000);
+                    break;
+                case "-":
+                    double diff = num1 - num2;
+                    Console.WriteLine($"Resultatet av {num1} - {num2} är {diff}");
+                    System.Threading.Thread.Sleep(1000);
+                    break;
+                case "*":
+                    double prod = num1 * num2;
+                    Console.WriteLine($"Resultatet av {num1} * {num2} är {prod}");
+                    System.Threading.Thread.Sleep(1000);
+                    break;
+                case "/":
+                    if (num2 == 0)
+                    {
+                        Console.WriteLine("Du kan inte dela med noll!");
+                        System.Threading.Thread.Sleep(1000);
+                        Start();
+                    }
+                    else
+                    {
+                        double quot = num1 / num2;
+                        Console.WriteLine($"Resultatet av {num1} / {num2} är {quot}");
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                    break;
+            }
+
+
+        }
+    }
+}
