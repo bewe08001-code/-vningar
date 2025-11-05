@@ -8,13 +8,14 @@ namespace Loopinlamning
         {
             for (int a = 1; a <= 10; a++) Console.WriteLine(a);
 
-            Console.WriteLine("Skriv ett heltal (0 för att avsluta):");
+            Console.WriteLine("Skriv ett heltal:");
             while (true)
             {
                 try
                 {
                     int v = int.Parse(Console.ReadLine()!);
                     if (v == 0) break;
+                    else Console.WriteLine("skriv ett annat tal");
                 }
                 catch { }
             }
@@ -79,7 +80,7 @@ namespace Loopinlamning
                 }
                 catch { }
             }
-            Console.WriteLine(evenCount);
+            Console.WriteLine($"{evenCount} var jämna tal.");
         }
     }
 }
